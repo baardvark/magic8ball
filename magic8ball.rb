@@ -5,21 +5,24 @@ require "pry"
             "No", 
             "Hell Yes", 
             "Hell No",
-            "It Is Certain", 
+            "Hell If I Know", 
             "As I See It... Maybe?", 
             "True Dat", 
-            "Ask Again Later", 
-            "Mmmmm... Doubt It", 
+            "Ask Again During Normal Business Hours", 
+            "Hmmmm... Doubt It", 
+            "That's Gonna Be A No",
             "They say there are no stupid questions... but that was a stupid question", 
             "Yo No Hablo Inglés", 
-            "Aw Hell No!", 
-            "Definitely Maybe", 
-            "Nope!", 
+            "Sorta Maybe", 
+            "Naw", 
             "Outlook Hazy", 
             "I promised I wouldn't tell you",
             "Spoiler Alert... No",
             "You Already Asked Me That",
-            "No, But Try To Act Surprised"
+            "Yes, But Try To Act Surprised",
+            "Indubitably", 
+            "Fo’ Shizzle",
+            "Kind Of"
             ]
  @answers2 = @answers.clone           
 
@@ -74,21 +77,25 @@ def menu
   def add
     puts "Add an answer".colorize(:green)
     puts ">".colorize(:green)
-    
     input = gets.to_s.strip
-    #if @answers.include?(input)
-    #puts "invalid"
-    #else
+    if @answers.include?(input)
+    puts "Invalid".colorize(:red)
+    menu
+    elsif input == "quit"
+      quit
+    else
     @answers << input
+    puts "#{@answers.last} has been added".colorize(:yellow)
     #binding.pry
     menu
   end 
+end
 
   def reset
     puts "Preparing to reset answers".colorize(:blue)
     sleep(2)
     @answers = @answers2
-    puts "Answers reset".colorize(:red)
+    puts "Answers reset".colorize(:yellow)
     menu
   end 
 
