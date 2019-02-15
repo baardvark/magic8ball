@@ -7,12 +7,12 @@ require "pry"
             "Hell No",
             "It Is Certain", 
             "As I See It... Maybe?", 
+            "True Dat", 
             "Ask Again Later", 
             "Mmmmm... Doubt It", 
             "They say there are no stupid questions... but that was a stupid question", 
             "Yo No Hablo Inglés", 
             "Aw Hell No!", 
-            "True Dat", 
             "Definitely Maybe", 
             "Nope!", 
             "Outlook Hazy", 
@@ -59,19 +59,21 @@ def menu
   end
 
   def thinking
-    puts "I'm thinking..........".colorize(:blue)
+    print "I'm thinking..........".colorize(:blue)
     sleep(1)
-    puts ''.colorize(:blue)
+    print ".".colorize(:blue)
     sleep(1)
-    puts "".colorize(:blue)
+    print ".".colorize(:blue)
     sleep(1)
-    puts "".colorize(:blue)
-    anwser
+    print ".".colorize(:blue)
+    sleep(1)
+    puts ".".colorize(:blue)
+    answer
   end  
 
   def add
     puts "Add an answer".colorize(:green)
-    print ">".colorize(:green)
+    puts ">".colorize(:green)
     
     input = gets.to_s.strip
     #if @answers.include?(input)
@@ -83,11 +85,10 @@ def menu
   end 
 
   def reset
-    puts "Press enter to reset answers".colorize(:blue)
-    print ">".colorize(:blue)
-    sleep(3)
+    puts "Preparing to reset answers".colorize(:blue)
+    sleep(2)
     @answers = @answers2
-    puts "Answers reset"
+    puts "Answers reset".colorize(:red)
     menu
   end 
 
@@ -97,15 +98,14 @@ def menu
     menu
   end 
  
-  def anwser
+  def answer
     puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
-    puts @anwsers.sample.colorize(:cyan)
+    puts @answers.sample.colorize(:cyan)
     puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 
     sleep(3)
     menu
   end
-
 
 
   menu
